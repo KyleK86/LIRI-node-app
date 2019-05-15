@@ -88,6 +88,41 @@ function spotify() {
 }
 
 function movie() {
+    var omdb = keys.omdb.id;
+    var queryURL = "http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=" + omdb;
+
+    axios.get(queryURL)
+        .then(function (response) {
+            var movieResponse = response.data;
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Title);
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Year);
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.imdbRating);
+            console.log("----------------------------------------------------------------");
+            for (var i = 0; i < movieResponse.Ratings.length; i++) {
+                if (movieResponse.Ratings[i].Source === "Rotten Tomatoes") {
+                    console.log("Rotten Tomatoes: " + movieResponse.Ratings[i].Value);
+
+                }
+            }
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Country);
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Language);
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Plot);
+            console.log("----------------------------------------------------------------");
+            console.log(movieResponse.Actors);
+            console.log("----------------------------------------------------------------");
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+
 
 }
 
