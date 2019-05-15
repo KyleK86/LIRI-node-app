@@ -43,7 +43,7 @@ Watch the video here: Place link to Google drive video here
     
     Output: The system will display a list of information associated with the song. It can result in multiple records. The system will also log all the results in the log.txt file. See screen-shot below:
 
-    ![Results](/screenshots/spotify_this_results.PNG)
+    ![Results](/screenshots/terminalShot2.jpg)
 
     **Example 3**: Run the `movie-this` command
     
@@ -51,7 +51,7 @@ Watch the video here: Place link to Google drive video here
     
     Output: The system will display information associated with the movie. The system will also log all the results in the log.txt file. See screen-shot below:
 
-    ![Results](/screenshots/movie_this_results.PNG)
+    ![Results](/screenshots/terminalShot3.jpg)
 
 
     **Example 4**: Run the `do-what-it-says` command
@@ -62,6 +62,6 @@ Watch the video here: Place link to Google drive video here
     
     See screen-shot below:
 
-    ![Results](/screenshots/dothis_this_results.PNG)
+    ![Results](/screenshots/terminalShot4.jpg)
 
 - - -
