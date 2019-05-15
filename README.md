@@ -7,7 +7,7 @@
 - - -
 
 ## ABOUT THE APP
-LIRI is a Node.js based application that takes in parameters through the terminal and gives back data. The user has the option of using four commands (listed below) in conjuntion with parameters associated with the commands. The  `Commands` are:
+LIRI is a Node.js based application that takes in parameters through the terminal and gives back data. The user has the option of using four commands (listed below) along with parameters associated with the commands. The  `Commands` are:
 
    * `concert-this`
 
@@ -33,7 +33,7 @@ Watch the video here: Place link to Google drive video here
     
         node liri.js concert-this <name of artist or band>
     
-    Output: The system will display a list of all events and locations where the artist or band will perform. It can result in multiple records. The system will also log all the results in the log.txt file. See screen-shot below:
+    Output: The system will display a list of all events and locations where the artist or band will perform. It may display multiple results. See screen-shot below:
 
     ![Results](/screenshots/terminalShot1.jpg)
 
@@ -41,7 +41,7 @@ Watch the video here: Place link to Google drive video here
     
         node liri.js spotify-this-song <name of song>
     
-    Output: The system will display a list of information associated with the song. It can result in multiple records. The system will also log all the results in the log.txt file. See screen-shot below:
+    Output: The system will display a list of information associated with the song. It can display multiple results. See screen-shot below:
 
     ![Results](/screenshots/terminalShot2.jpg)
 
@@ -49,7 +49,7 @@ Watch the video here: Place link to Google drive video here
     
         node liri.js movie-this <name of movie>
     
-    Output: The system will display information associated with the movie. The system will also log all the results in the log.txt file. See screen-shot below:
+    Output: The system will display information associated with the movie. See screen-shot below:
 
     ![Results](/screenshots/terminalShot3.jpg)
 
@@ -58,7 +58,7 @@ Watch the video here: Place link to Google drive video here
         
         node liri.js do-what-it-says
         
-    Output: The system will read the text in the random.txt file, and perform the comman listed in the random.txt file. 
+    Output: The system will read the text in the random.txt file, and perform it as if it were code.
     
     See screen-shot below:
 
