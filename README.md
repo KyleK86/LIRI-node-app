@@ -65,3 +65,17 @@ Watch the video here: Place link to Google drive video here
     ![Results](/screenshots/terminalShot4.jpg)
 
 - - -
+
+## TECHNOLOGIES USED
+* Javascript
+* Nodejs
+* Node packages:
+    * Node-Spotify-API
+    * Request
+    * Moment
+    * DotEnv
+* APIs used:
+    * Bands in Town
+    * OMDB
+* Git
+* GitHub
