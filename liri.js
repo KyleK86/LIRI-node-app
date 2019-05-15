@@ -11,23 +11,29 @@ var axios = require("axios");
 var action = process.argv[2];
 var input = process.argv[3];
 
-switch (action) {
-    case "concert-this":
-        concertThis(input);
-        break;
+function userCommand() {
+    switch (action) {
+        case "concert-this":
+            concertThis(input);
+            break;
 
-    case "spotify-this-song":
-        spotify(input);
-        break;
+        case "spotify-this-song":
+            spotify(input);
+            break;
 
-    case "movie-this":
-        movie(input);
-        break;
+        case "movie-this":
+            movie(input);
+            break;
 
-    case "do-what-it-says":
-        doWhatItSays();
-        break;
+        case "do-what-it-says":
+            doWhatItSays();
+            break;
+        default:
+            console.log("ABOUT THE APP. LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives back data. The user has the option of using four commands (listed below) in conjuntion with specific parameters associated with the commands. The Commands are: concert-this, spotify-this-song, movie-this, do-what-it-says");
+
+    }
 }
+userCommand(action, input);
 
 // FUNCTIONS
 function concertThis() {
@@ -52,15 +58,15 @@ function concertThis() {
         });
 }
 
-function spotify() {
-
-    if (input === undefined) {
-        input = "The Sign Ace of Base"
-    }
+function spotify(input) {
     //ACCESS SPOTIFY KEY
     var Spotify = require('node-spotify-api');
     var spotify = new Spotify(keys.spotify);
 
+    // Default song
+    if (input === undefined) {
+        input = "The Sign Ace of Base"
+    }
     spotify
         .search({
             type: 'track',
@@ -68,7 +74,6 @@ function spotify() {
         })
         .then(function (response) {
             var spoils = response.tracks.items[0];
-            console.log(spoils);
             console.log("----------------------------------------------------------------");
             console.log(spoils.album.artists[0].name);
             console.log("----------------------------------------------------------------");
@@ -127,5 +132,34 @@ function movie() {
 }
 
 function doWhatItSays() {
+    var fs = require("fs");
 
+    // We will read the existing bank file
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        if (err) {
+            return console.log(err);
+
+        }
+        var dataArray = data.split(",");
+        var action = dataArray[0];
+        var input = dataArray[1];
+        console.log(action);
+        console.log(input);
+
+        switch (action) {
+            case "concert-this":
+                concertThis(input);
+                break;
+
+            case "spotify-this-song":
+                spotify(input);
+                break;
+
+            case "movie-this":
+                movie(input);
+                break;
+
+        }
+
+    });
 }
