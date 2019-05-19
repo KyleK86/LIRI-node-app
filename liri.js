@@ -172,6 +172,7 @@ function doWhatItSays() {
         console.log(action);
         console.log(input);
 
+
         switch (action) {
             case "concert-this":
                 concertThis(input);
@@ -186,6 +187,10 @@ function doWhatItSays() {
                 break;
 
         }
-
+        fs.appendFile("log.txt", "User engaged the random file.", function (err) {
+            if (err) {
+                console.log(err);
+            }
+        })
     });
 }
