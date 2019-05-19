@@ -1,10 +1,10 @@
 // Read and set environment variables
 require("dotenv").config();
+var colors = require('colors');
 
 //CODE TO IMPORT KEYS.JS
 var keys = require("./key.js");
 var axios = require("axios");
-
 
 
 //SWITCH STATEMENT TO DEFINE ARGUMENTS
@@ -29,7 +29,7 @@ function userCommand() {
             doWhatItSays();
             break;
         default:
-            console.log("ABOUT THE APP. LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives back data. The user has the option of using four commands (listed below) in conjuntion with specific parameters associated with the commands. The Commands are: concert-this, spotify-this-song, movie-this, do-what-it-says");
+            console.log(colors.verbose("ABOUT THE APP. LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in parameters and gives back data. The user has the option of using four commands (listed below) in conjuntion with specific parameters associated with the commands. The Commands are: concert-this, spotify-this-song, movie-this, do-what-it-says"));
 
     }
 }
@@ -44,13 +44,13 @@ function concertThis() {
 
         .then(function (response) {
             var booty = response.data[0];
-            console.log("----------------------------------------------------------------");
-            console.log("Venue Name: " + booty.venue.name);
-            console.log("----------------------------------------------------------------");
-            console.log("Country: " + booty.venue.country);
-            console.log("----------------------------------------------------------------");
-            console.log("Event Time: " + moment(booty.datetime).format("MM/DD/YYYY"));
-            console.log("----------------------------------------------------------------");
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.verbose("Venue Name: ") + colors.info(booty.venue.name));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.verbose("Country: ") + colors.info(booty.venue.country));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.verbose("Event Time: ") + colors.info(moment(booty.datetime).format("MM/DD/YYYY")));
+            console.log(colors.silly("----------------------------------------------------------------"));
 
         })
         .catch(function (error) {
@@ -74,15 +74,15 @@ function spotify(input) {
         })
         .then(function (response) {
             var spoils = response.tracks.items[0];
-            console.log("----------------------------------------------------------------");
-            console.log(spoils.album.artists[0].name);
-            console.log("----------------------------------------------------------------");
-            console.log(spoils.name);
-            console.log("----------------------------------------------------------------");
-            console.log(spoils.preview_url);
-            console.log("----------------------------------------------------------------");
-            console.log(spoils.album.name);
-            console.log("----------------------------------------------------------------");
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.debug("Artist Name: ") + colors.magenta(spoils.album.artists[0].name));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.debug("Song Name: ") + colors.magenta(spoils.name));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.debug("Preview URL: ") + colors.magenta(spoils.preview_url));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.debug("Album Name: ") + colors.magenta(spoils.album.name));
+            console.log(colors.silly("----------------------------------------------------------------"));
 
 
 
@@ -99,29 +99,28 @@ function movie() {
     axios.get(queryURL)
         .then(function (response) {
             var movieResponse = response.data;
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Title);
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Year);
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.imdbRating);
-            console.log("----------------------------------------------------------------");
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Title: ") + colors.bgMagenta(movieResponse.Title));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Year: ") + colors.bgMagenta(movieResponse.Year));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("IMDB Rating: ") + colors.bgMagenta(movieResponse.imdbRating));
+            console.log(colors.silly("----------------------------------------------------------------"));
             for (var i = 0; i < movieResponse.Ratings.length; i++) {
                 if (movieResponse.Ratings[i].Source === "Rotten Tomatoes") {
-                    console.log("Rotten Tomatoes: " + movieResponse.Ratings[i].Value);
+                    console.log(colors.magenta("Rotten Tomatoes: ") + colors.bgMagenta(movieResponse.Ratings[i].Value));
 
                 }
             }
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Country);
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Language);
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Plot);
-            console.log("----------------------------------------------------------------");
-            console.log(movieResponse.Actors);
-            console.log("----------------------------------------------------------------");
-
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Country: ") + colors.bgMagenta(movieResponse.Country));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Language: ") + colors.bgMagenta(movieResponse.Language));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Plot: ") + colors.bgMagenta(movieResponse.Plot));
+            console.log(colors.silly("----------------------------------------------------------------"));
+            console.log(colors.magenta("Actors: ") + colors.bgMagenta(movieResponse.Actors));
+            console.log(colors.silly("----------------------------------------------------------------"));
         })
         .catch(function (error) {
             console.log(error);

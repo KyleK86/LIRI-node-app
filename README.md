@@ -74,6 +74,7 @@ Watch the video here: Place link to Google drive video here
     * Request
     * Moment
     * DotEnv
+    * Colors
 * APIs used:
     * Bands in Town
     * OMDB
