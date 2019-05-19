@@ -1,6 +1,7 @@
 // Read and set environment variables
 require("dotenv").config();
 var colors = require('colors');
+var fs = require("fs");
 
 //CODE TO IMPORT KEYS.JS
 var keys = require("./key.js");
@@ -84,6 +85,16 @@ function spotify(input) {
             console.log(colors.debug("Album Name: ") + colors.magenta(spoils.album.name));
             console.log(colors.silly("----------------------------------------------------------------"));
 
+            fs.appendFile("log.txt", "\nAppending this song and artist data: " +
+                "\n" + spoils.album.artists[0].name +
+                "\n" + spoils.name +
+                "\n" + spoils.preview_url +
+                "\n" + spoils.album.name,
+                function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                })
 
 
         })
@@ -121,6 +132,22 @@ function movie() {
             console.log(colors.silly("----------------------------------------------------------------"));
             console.log(colors.magenta("Actors: ") + colors.bgMagenta(movieResponse.Actors));
             console.log(colors.silly("----------------------------------------------------------------"));
+
+
+            fs.appendFile("log.txt", "\nAppending this movie data: " +
+                "\n" + movieResponse.Title +
+                "\n" + movieResponse.Year +
+                "\n" + movieResponse.imdbRating +
+                "\n" + movieResponse.Ratings +
+                "\n" + movieResponse.Country +
+                "\n" + movieResponse.Language +
+                "\n" + movieResponse.Plot +
+                "\n" + movieResponse.Actors,
+                function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                })
         })
         .catch(function (error) {
             console.log(error);
