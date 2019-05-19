@@ -21,7 +21,7 @@ LIRI is a Node.js based application that takes in parameters through the termina
 ## HOW TO USE LIRI
 ### **Video Guide**
 
-Watch the video here: Place link to Google drive video here 
+Watch the video here: "https://drive.google.com/open?id=19ABRpa1RFqiyVqmHYbtq3SFSgTX1tJcZ"
 
 ### **Step by Step instructions**
 
