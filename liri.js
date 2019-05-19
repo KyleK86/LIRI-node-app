@@ -53,6 +53,16 @@ function concertThis() {
             console.log(colors.verbose("Event Time: ") + colors.info(moment(booty.datetime).format("MM/DD/YYYY")));
             console.log(colors.silly("----------------------------------------------------------------"));
 
+            fs.appendFile("log.txt", "\nAppending this concert data: " +
+                "\n" + booty.venue.name +
+                "\n" + booty.venue.country +
+                "\n" + booty.datetime,
+
+                function (err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                })
         })
         .catch(function (error) {
             console.log(error);
